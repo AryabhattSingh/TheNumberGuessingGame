@@ -119,3 +119,14 @@ def another_round():
             print("Kindly enter 'y' or 'n' only!")
             print(f"{'+' * 40}")
     return next_round
+
+
+def clear_screen():
+    os.system('cls')
+
+
+def goodbye():
+    print(f"{'-' * 30}")
+    print(f"{' ' * 11}Goodbye!")
+    print(f"{'-' * 30}")
+    
