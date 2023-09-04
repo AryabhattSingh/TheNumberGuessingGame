@@ -61,7 +61,34 @@ def make_a_guess():
 
 
 def evaluate_guess(random_selected_number, user_guess, lives):
-    pass
+    difference = user_guess - random_selected_number
+    abs_difference = abs(difference)
+    if abs_difference != 0:
+        lives -= 1
+
+    if abs_difference > 20:
+        if difference > 0:
+            print("Too High.")
+        else:
+            print("Too Low.")
+    elif abs_difference in range(10, 21):
+        if difference > 0:
+            print("High")
+        else:
+            print("Low")
+    elif abs_difference in range(5, 10):
+        print("Close")
+    elif abs_difference in range(3, 5):
+        print("Very Close")
+    elif abs_difference in range(1, 3):
+        print("Almost there")
+    else:
+        print(f"\n{'*' * 30}")
+        print(f"You got it! The answer was {user_guess}")
+        print(f"{'*' * 30}")
+
+    return lives
+
 
 
 def play_game():
