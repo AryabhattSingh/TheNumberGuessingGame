@@ -35,12 +35,26 @@ def set_difficulty():
         elif level == "hard":
             return HARD_LEVEL_LIVES
         else:
-            print("\nkindly enter a valid value!")
+            print("\nKindly enter a valid value!")
 
+
+def is_guess_valid(user_guess):
+    pass
 
 
 def make_a_guess():
-    pass
+    guess_valid = False
+    while not guess_valid:
+        user_guess = input("\nMake a guess: ")
+        if is_guess_valid(user_guess):
+            user_guess = int(user_guess)
+            if user_guess <= 0 or user_guess > 100:
+                print("Kindly enter a whole number between 0 and 100 only!")
+            else:
+                return user_guess
+        else:
+            print("Kindly enter whole number only!")
+
 
 
 def evaluate_guess(random_selected_number, user_guess, lives):
