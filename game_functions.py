@@ -90,7 +90,6 @@ def evaluate_guess(random_selected_number, user_guess, lives):
     return lives
 
 
-
 def play_game():
     print(f"\nWelcome to The Number Guessing Game!")
     lives = set_difficulty()
@@ -108,3 +107,15 @@ def play_game():
             print(f"{'*' * 36}")
         elif user_guess != random_selected_number:
             print("Guess again!")
+
+
+def another_round():
+    next_round = ""
+    while next_round != "y" and next_round != "n":
+        next_round = input("\n\n-Do you want to play another round?-----\n"
+                           "Type 'y' to start a new game or 'n' to stop: ").lower()
+        if next_round != "y" and next_round != "n":
+            print(f"\n{'+' * 40}")
+            print("Kindly enter 'y' or 'n' only!")
+            print(f"{'+' * 40}")
+    return next_round
