@@ -38,8 +38,12 @@ def set_difficulty():
             print("\nKindly enter a valid value!")
 
 
-def is_guess_valid(user_guess):
-    pass
+def is_guess_valid(user_input):
+    try:
+        int(user_input)
+        return True
+    except ValueError:
+        return False
 
 
 def make_a_guess():
@@ -54,7 +58,6 @@ def make_a_guess():
                 return user_guess
         else:
             print("Kindly enter whole number only!")
-
 
 
 def evaluate_guess(random_selected_number, user_guess, lives):
