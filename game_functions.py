@@ -1,6 +1,10 @@
 import random
 import os
 
+EASY_LEVEL_LIVES = 10
+MEDIUM_LEVEL_LIVES = 7
+HARD_LEVEL_LIVES = 5
+
 
 def first_game_instructions():
     print("\nComputer will select a number in the range of 1 to 100.")
@@ -21,7 +25,18 @@ def print_game_instructions():
 
 
 def set_difficulty():
-    pass
+    level = ""
+    while level != "easy" and level != "hard":
+        level = input("\nChose a difficulty level. Type 'EASY' or 'MEDIUM' or 'HARD' :").lower()
+        if level == "easy":
+            return EASY_LEVEL_LIVES
+        elif level == "medium":
+            return MEDIUM_LEVEL_LIVES
+        elif level == "hard":
+            return HARD_LEVEL_LIVES
+        else:
+            print("\nkindly enter a valid value!")
+
 
 
 def make_a_guess():
