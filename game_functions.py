@@ -7,6 +7,7 @@ HARD_LEVEL_LIVES = 5
 
 
 def first_game_instructions():
+    """This functions prints the introductory instructions of the game"""
     print("\nComputer will select a number in the range of 1 to 100.")
     print("You will have to guess that number.")
     print("You get 10 lives in EASY and 5 lives in HARD mode.")
@@ -15,6 +16,7 @@ def first_game_instructions():
 
 
 def print_game_instructions():
+    """This function prints score-related information of the game"""
     print("\nDepending on the absolute difference between user guess and computer selected number, "
           "one of the following will be printed :")
     print("> 20           -> Too High or Too Low")
@@ -25,6 +27,7 @@ def print_game_instructions():
 
 
 def set_difficulty():
+    """This function let the user choose difficulty and set lives accordingly"""
     level = ""
     while level != "easy" and level != "hard":
         level = input("\nChose a difficulty level. Type 'EASY' or 'MEDIUM' or 'HARD' :").lower()
@@ -39,6 +42,8 @@ def set_difficulty():
 
 
 def is_guess_valid(user_input):
+    """This function checks whether the guess made by the user is a number. It returns a boolean
+    value."""
     try:
         int(user_input)
         return True
@@ -47,6 +52,7 @@ def is_guess_valid(user_input):
 
 
 def make_a_guess():
+    """This function lets the user make a guess"""
     guess_valid = False
     while not guess_valid:
         user_guess = input("\nMake a guess: ")
@@ -61,6 +67,8 @@ def make_a_guess():
 
 
 def evaluate_guess(random_selected_number, user_guess, lives):
+    """This function evaluates the guess made by the user. Information is printed as per the guess. It returns the
+     remaining number of lives"""
     difference = user_guess - random_selected_number
     abs_difference = abs(difference)
     if abs_difference != 0:
@@ -91,6 +99,7 @@ def evaluate_guess(random_selected_number, user_guess, lives):
 
 
 def play_game():
+    """This function lets the user play one round of game"""
     print(f"\nWelcome to The Number Guessing Game!")
     lives = set_difficulty()
     print(f"\nCOMPUTER SELECTED A NUMBER IN THE RANGE OF 1 AND 100")
@@ -110,6 +119,7 @@ def play_game():
 
 
 def another_round():
+    """This function asks the user whether they want to play another round. It returns 'y' or 'n'"""
     next_round = ""
     while next_round != "y" and next_round != "n":
         next_round = input("\n\n-Do you want to play another round?-----\n"
@@ -122,11 +132,12 @@ def another_round():
 
 
 def clear_screen():
+    """This function clears the console"""
     os.system('cls')
 
 
 def goodbye():
+    """This function prints goodbye message on the console"""
     print(f"{'-' * 30}")
     print(f"{' ' * 11}Goodbye!")
     print(f"{'-' * 30}")
-    
